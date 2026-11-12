@@ -1,6 +1,6 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { z } from 'zod';
-import { getRokuyo, getRokuyoMonth, findRokuyoDates, ROKUYO, SUPPORTED_RANGE, CALENDAR_METHOD, CULTURAL_NOTE } from './index.js';
+import { getRokuyo, getRokuyoMonth, findRokuyoDates, ROKUYO, SUPPORTED_RANGE, CALENDAR_METHOD, CULTURAL_NOTE } from 'astromei-core';
 
 const date = z.string().regex(/^\d{4}-\d{2}-\d{2}$/).describe('Japan-local Gregorian date (YYYY-MM-DD), supported 2025–2027.');
 const annotations = { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false };

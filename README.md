@@ -1,6 +1,6 @@
 # Astromei — 六曜 calendar & MCP
 
-An offline Japanese Rokuyo calendar library and Model Context Protocol server by [Astromei](https://astromei.com). Look up 六曜 for a date, generate a month, or find 大安・友引 and other labels in a date range.
+An offline Japanese Rokuyo Model Context Protocol server powered by [astromei-core](https://github.com/astromei/astromei-core), with compatible library exports by [Astromei](https://astromei.com). Look up 六曜 for a date, generate a month, or find 大安・友引 and other labels in a date range.
 
 [日本語の六曜カレンダー](https://astromei.com/ja/rokuyo) · [Astromeiについて](https://astromei.com/ja/about)
 
@@ -11,6 +11,13 @@ An offline Japanese Rokuyo calendar library and Model Context Protocol server by
 Astromei（アストロメイ）の六曜計算を、JavaScript と MCP から利用できます。日付は日本時間の暦日（`YYYY-MM-DD`）で指定します。対応期間は **2025年1月1日〜2027年12月31日**。APIキー不要、ローカルで動作します。
 
 六曜・旧暦月日・読み方・時間帯の慣習を返します。一粒万倍日・天赦日・祝日の判定は、この初版には含まれません。六曜は伝統的な慣習であり、出来事の結果を保証するものではありません。
+
+## Package structure
+
+- [`astromei-core`](https://github.com/astromei/astromei-core): independent calculation library, without MCP or AI dependencies.
+- `astromei`: MCP protocol adapter; its existing library exports forward to the core.
+
+While the npm core release is pending, this repository depends on a pinned GitHub commit via HTTPS. `npm ci` requires Git and network access at installation, builds the core automatically, and needs no npm login. After core publication, the dependency can move to the npm version. Runtime stays offline.
 
 ## JavaScript / TypeScript
 
