@@ -4,6 +4,8 @@ An offline Japanese Rokuyo calendar library and Model Context Protocol server by
 
 [日本語の六曜カレンダー](https://astromei.com/ja/rokuyo) · [Astromeiについて](https://astromei.com/ja/about)
 
+**Release status:** the source is available on GitHub; the npm registry release is pending. Until it is published, run `npm ci`, `npm run build`, then `node dist/stdio.js` from this repository to start the MCP server. The npm installation examples below apply after the registry release.
+
 ## 日本語
 
 Astromei（アストロメイ）の六曜計算を、JavaScript と MCP から利用できます。日付は日本時間の暦日（`YYYY-MM-DD`）で指定します。対応期間は **2025年1月1日〜2027年12月31日**。APIキー不要、ローカルで動作します。
