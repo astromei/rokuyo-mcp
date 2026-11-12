@@ -1,0 +1,65 @@
+{
+  "name": "astromei",
+  "version": "0.1.0",
+  "description": "Japanese Rokuyo (六曜) calendar library and offline MCP server by Astromei. Date lookup, monthly calendars and date search.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./mcp": {
+      "types": "./dist/mcp.d.ts",
+      "import": "./dist/mcp.js"
+    }
+  },
+  "bin": {
+    "astromei-mcp": "./dist/stdio.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "npm run build && node --test tests/*.test.mjs",
+    "prepublishOnly": "npm test"
+  },
+  "keywords": [
+    "astromei",
+    "rokuyo",
+    "六曜",
+    "六曜カレンダー",
+    "大安",
+    "友引",
+    "japanese-calendar",
+    "kyureki",
+    "mcp",
+    "model-context-protocol"
+  ],
+  "homepage": "https://astromei.com/ja/rokuyo",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/astromei/rokuyo-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/astromei/rokuyo-mcp/issues"
+  },
+  "author": "Astromei (https://astromei.com)",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "korean-lunar-calendar": "0.4.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.1",
+    "typescript": "^5.8.3"
+  }
+}
