@@ -2,9 +2,9 @@
 
 An offline Japanese Rokuyo Model Context Protocol server powered by [astromei-core](https://github.com/astromei/astromei-core), with compatible library exports by [Astromei](https://astromei.com). Look up 六曜 for a date, generate a month, or find 大安・友引 and other labels in a date range.
 
-[日本語の六曜カレンダー](https://astromei.com/ja/rokuyo) · [Astromeiについて](https://astromei.com/ja/about)
+[日本語の六曜カレンダー](https://astromei.com/ja/rokuyo) · [Astromei 日本語版](https://astromei.com/ja)
 
-**Release status:** the source is available on GitHub; the npm registry release is pending. Until it is published, run `npm ci`, `npm run build`, then `node dist/stdio.js` from this repository to start the MCP server. The npm installation examples below apply after the registry release.
+The [npm package](https://www.npmjs.com/package/@astromei/rokuyo-mcp) is available for installation. To run from a GitHub checkout, use `npm ci`, `npm run build`, then `node dist/stdio.js`.
 
 ## 日本語
 
@@ -15,20 +15,20 @@ Astromei（アストロメイ）の六曜計算を、JavaScript と MCP から�
 ## Package structure
 
 - [`astromei-core`](https://github.com/astromei/astromei-core): independent calculation library, without MCP or AI dependencies.
-- `astromei`: MCP protocol adapter; its existing library exports forward to the core.
+- `@astromei/rokuyo-mcp`: MCP protocol adapter with library exports forwarded to the core.
 
-While the npm core release is pending, this repository depends on a pinned GitHub commit via HTTPS. `npm ci` requires Git and network access at installation, builds the core automatically, and needs no npm login. After core publication, the dependency can move to the npm version. Runtime stays offline.
+This release uses a pinned GitHub commit of the core library. Installation requires Git and network access. The server runs offline after installation. The library is also published separately as [`@astromei/core`](https://www.npmjs.com/package/@astromei/core).
 
 ## JavaScript / TypeScript
 
 Requires Node.js 20+. ESM with TypeScript declarations.
 
 ```sh
-npm install astromei
+npm install @astromei/rokuyo-mcp
 ```
 
 ```js
-import { getRokuyo, getRokuyoMonth, findRokuyoDates } from 'astromei';
+import { getRokuyo, getRokuyoMonth, findRokuyoDates } from '@astromei/rokuyo-mcp';
 
 getRokuyo('2026-10-11'); // 先負, lunar month 9 / day 1
 getRokuyoMonth(2026, 11);
@@ -48,7 +48,7 @@ Use this configuration in Claude Desktop or another client supporting stdio MCP:
   "mcpServers": {
     "astromei-rokuyo": {
       "command": "npx",
-      "args": ["-y", "--package=astromei@0.1.0", "astromei-mcp"]
+      "args": ["-y", "--package=@astromei/rokuyo-mcp@0.1.0", "astromei-mcp"]
     }
   }
 }
@@ -85,3 +85,5 @@ npm pack --dry-run
 Tests cover the midnight new-moon boundary, known dates, invalid inputs, bounded searches, and a real MCP stdio handshake/tool invocation.
 
 MIT licensed. Maintained by [Astromei](https://astromei.com).
+
+[![Astromei Rokuyo MCP on Glama](https://glama.ai/mcp/servers/astromei/rokuyo-mcp/badges/score.svg)](https://glama.ai/mcp/servers/astromei/rokuyo-mcp)
